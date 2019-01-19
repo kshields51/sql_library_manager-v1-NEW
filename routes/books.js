@@ -24,4 +24,17 @@ router.post('/new', (req, res, next) => {
 
 })
 
+router.get('/:id', (req, res, next) => {
+  Book.findById(req.params.id).then(function(book) {
+    res.render('update-book', {book: book, id: req.params.id})
+  })
+})
+
+
+router.put('/:id', (req, res, next) => {
+  Book.findById(req.params.id).then(function(book) {
+    return book.update(req.body);
+}).then(() => res.redirect('/'));
+});
+
 module.exports = router;
