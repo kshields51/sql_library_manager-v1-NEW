@@ -1,4 +1,8 @@
 'use strict';
+
+/*********** /
+THe Book Model contains the following columns title, author, genre, year. A Sequelize Validator ensures that any new articles have a title and an author
+************/
 module.exports = (sequelize, DataTypes) => {
   const Book = sequelize.define('Book', {
     title: {

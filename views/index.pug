@@ -12,11 +12,15 @@ block content
         th Genre
         th Year
     tbody
-    each book in books
+    each book in books 
       tr
         td
           a(href="/books/" + book.id) #{book.title}
         td=book.author
         td=book.genre
         td=book.year
+
+
+
+  //This is the page that is rendered when a user accesses the websites homepage. It uses a for loop to add the books from the database to the page.
   

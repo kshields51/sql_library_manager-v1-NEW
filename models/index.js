@@ -1,5 +1,9 @@
 'use strict';
 
+/*********** /
+Imports any models that are defined. Also imports the sequelize package whenever models are imported.
+************/
+
 const fs = require('fs');
 const path = require('path');
 const Sequelize = require('sequelize');

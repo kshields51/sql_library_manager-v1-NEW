@@ -1,7 +1,7 @@
 extends layout
 block content
 
-    h1 Update Book
+    h1 Update Book 
 
     include form-error
         form(action="/books/" + book.id + "?_method=PUT",  method="post")
@@ -25,3 +25,5 @@ block content
                 a.button(href='/books') Cancel
             p
                 input(type='submit', value='Delete Book')
+
+    //This page is the form that allows users to update a book
