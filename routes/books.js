@@ -56,8 +56,9 @@ router.post('/new', (req, res, next) => {
 router.get('/:id', (req, res, next) => {
   Book.findById(req.params.id).then(function(book) {
     if (!book) {
-      const err = new Error("There has been an error")
-      next(err)
+      const bookErr = new Error("There has been an error")
+      bookErr.code = 2 //sets a custom error code of 2 so that the correct template can be rendered
+      next(bookErr)
     } else {
       res.render('update-book', {book: book, id: req.params.id}) //book is matched to the forms value attributes
     }
@@ -105,12 +106,5 @@ router.post('/:id/delete', (req, res, next) => {
 });
 
 
-/*********** /
-Error Handling Middleware for when a user tries to find an id that does not exist
-************/
-router.use((err, req, res, next) => {
-  console.log(err)
-  res.render('error')
-});
 
 module.exports = router;
